@@ -9,7 +9,7 @@ const routes: Routes = [{
     component: BlogHolderComponent,
     children: [
         {
-            path: 'page/:blog_name',
+            path: ':blog_name',
             component: BlogComponent
         }
     ]

@@ -24,7 +24,7 @@ export class BlogComponent implements OnInit {
                 this.blog.content = t.content;
                 this.blog.created_at = t.created_at;
                 this.blog.last_update_at = t.last_update_at;
-            });
+            }, err => this.blog = { title: 'No Post Available', no_content: true } as BlogModel);
         });
 
     }

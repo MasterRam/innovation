@@ -8,4 +8,6 @@ export class BlogModel {
     last_update_at: Date;
     tags: string[];
     content: string;
+    description: string;
+    no_content: boolean;
 }
