@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
     selector: 'app-blog-builder',
-    template: ``
+    templateUrl: './blog-builder.component.html'
 })
 
 export class BlogBuilderComponent implements OnInit {

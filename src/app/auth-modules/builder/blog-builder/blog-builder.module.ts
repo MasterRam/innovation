@@ -4,7 +4,7 @@ import { BlogBuilderComponent } from './blog-builder.component';
 
 @NgModule({
     imports: [],
-    exports: [],
+    exports: [BlogBuilderComponent],
     declarations: [BlogBuilderComponent],
     providers: [],
 })

@@ -7,13 +7,12 @@ import { HomeModule } from './home.module';
 const routes: Routes = [{
     path: '',
     component: HomeComponent,
-    children: [{
-        path: 'profile',
-        component: ProfileComponent,
-
-    }, {
+    children: [ {
         path: 'dashboard',
         loadChildren: '../dashboard/dashboard-routing.module#DashboardRoutingModule'
+    },{
+        path: 'profile',
+        component: ProfileComponent
     }]
 }];
 
