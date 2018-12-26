@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 
 import { BlogBuilderComponent } from './blog-builder.component';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 @NgModule({
-    imports: [],
+    imports: [CKEditorModule],
     exports: [BlogBuilderComponent],
     declarations: [BlogBuilderComponent],
     providers: [],

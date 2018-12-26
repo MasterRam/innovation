@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { OAuthService, OAuthModule, UrlHelperService } from 'angular-oauth2-oidc';
-import { HttpClient, HttpHandler, HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { OAuthModule } from 'angular-oauth2-oidc';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TokenInterceptor } from './identity/token-interceptor';
 import { AuthGuard } from './identity/auth-guard';
 import { UnAuthGuard } from './identity/un-auth-guard';

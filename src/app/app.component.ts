@@ -5,6 +5,7 @@ import { authConfig } from './identity/auth-config';
 import { isPlatformBrowser } from '@angular/common';
 import './main-script';
 import { OAuthRefreshService } from './identity/auth-refresh';
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -22,19 +23,20 @@ export class AppComponent implements OnInit {
     private oauthService: OAuthService,
     private refreshService: OAuthRefreshService
   ) {
-    // if (isPlatformBrowser(this.platformId)) {
-    //   this.oauthService.configure(authConfig);
-    //   this.oauthService.tokenValidationHandler = new JwksValidationHandler();
-    //   this.oauthService.loadDiscoveryDocumentAndTryLogin();
-    // }
+    if (environment.allowAnonymous) { return; }
+    if (isPlatformBrowser(this.platformId)) {
+      this.oauthService.configure(authConfig);
+      this.oauthService.tokenValidationHandler = new JwksValidationHandler();
+      this.oauthService.loadDiscoveryDocumentAndTryLogin();
+    }
   }
 
   ngOnInit() {
-    return;
+    if (environment.allowAnonymous) { return; }
     if (isPlatformBrowser(this.platformId)) {
       this.oauthService.events.subscribe(t => {
         console.log('events', t);
-        if (t.type == 'token_received') {
+        if (t.type === 'token_received') {
           this.refreshService.refreshToken();
         }
       });

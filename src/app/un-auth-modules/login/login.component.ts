@@ -5,6 +5,7 @@ import { OAuthService } from 'angular-oauth2-oidc';
 import { HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { userConfig } from 'src/app/identity/user-config';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -30,6 +31,7 @@ export class LoginComponent implements OnInit {
   }
 
   submit() {
+    if (environment.allowAnonymous) {  this.router.navigate(['/home']); return; }
     const headers = new HttpHeaders({
       'content-type': 'application/x-www-form-urlencoded',
       authorization: btoa(
