@@ -4,11 +4,12 @@ import { DashboardComponent } from "./dashboard.component";
 import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router";
 import { SummaryComponent } from "./summary/summary.component";
+import { SearchComponent } from "./search/search.component";
 
 @NgModule({
   imports: [CommonModule, RouterModule],
-  exports: [DashboardComponent,SummaryComponent],
-  declarations: [DashboardComponent,SummaryComponent],
+  exports: [DashboardComponent, SummaryComponent, SearchComponent],
+  declarations: [DashboardComponent, SummaryComponent, SearchComponent],
   providers: []
 })
 export class DashboardModule {}
