@@ -1,4 +1,4 @@
-<h3>Add / Edit Blog</h3>
+<h3>Add / Edit Post</h3>
 <p>
     To create New Page
 </p>
@@ -8,15 +8,15 @@
         <input type="text" class="form-control" placeholder="Page Name">
     </div>
     <div class="form-group">
-        <input type="text" class="form-control" placeholder="Tags">
+            <tag-input [(ngModel)]='items' name="first"></tag-input>
     </div>    
     <div class="form-group">
-        <textarea placeholder="Page Source" class="form-control"></textarea>
+            <ckeditor [editor]="Editor" data="<p>Hello, world!</p>" (ready)="onReady($event)"></ckeditor>
     </div>
     <div class="form-group">
         <div class="row"> 
-            <div class="offset-md-10 col-1"><button class="btn btn-primary">Save</button></div>
-            <div class="col-1"><button class="btn btn-default">Cancel</button></div>
+            <div class="offset-md-10 col-1"><button class="col btn btn-primary">Save</button></div>
+            <div class="col-1"><button class="col btn btn-default">Cancel</button></div>
         </div>
     </div>
 </form>

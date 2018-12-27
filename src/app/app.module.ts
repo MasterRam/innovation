@@ -11,6 +11,7 @@ import { UnAuthGuard } from './identity/un-auth-guard';
 import { ButtonsModule } from 'ngx-bootstrap';
 import { OAuthRefreshService } from './identity/auth-refresh';
 import { ApiService } from './api.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -18,9 +19,10 @@ import { ApiService } from './api.service';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     OAuthModule.forRoot(),
-    ButtonsModule.forRoot(),
-    HttpClientModule,
+    ButtonsModule.forRoot(),    
+    HttpClientModule,    
     AppRoutingModule,
   ],
   providers: [ApiService, {

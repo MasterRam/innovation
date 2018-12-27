@@ -243,10 +243,10 @@ strong {
 	@include font-weight(bold);
 }
 
-button,
-input,
-select,
-textarea,
-label {
-	@include font-size(5, mobile, true, true);
-}
+// button,
+// input,
+// select,
+// textarea,
+// label {
+// 	@include font-size(5, mobile, true, true);
+// }

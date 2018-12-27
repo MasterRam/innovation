@@ -8,6 +8,7 @@ import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 export class BlogBuilderComponent implements OnInit {
     public Editor = ClassicEditor;
+    items = ['Pizza', 'Pasta', 'Parmesan'];
     constructor() { }
 
     ngOnInit() { }
