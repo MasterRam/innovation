@@ -1,0 +1,7 @@
+{
+  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../dist/bread-crumbs",
+  "lib": {
+    "entryFile": "src/src/app/tools/bread-crumbs.ts"
+  }
+}

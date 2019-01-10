@@ -6,6 +6,8 @@ import { isPlatformBrowser } from '@angular/common';
 import './main-script';
 import { OAuthRefreshService } from './identity/auth-refresh';
 import { environment } from 'src/environments/environment';
+import { BreadCrumbsService } from 'projects/bread-crumbs/src/lib/bread-crumbs.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,7 +15,7 @@ import { environment } from 'src/environments/environment';
 })
 export class AppComponent implements OnInit {
   title = 'source';
-
+  
   /**
    *
    */
@@ -21,9 +23,12 @@ export class AppComponent implements OnInit {
     @Inject(PLATFORM_ID) private platformId: Object,
     private router: Router,
     private oauthService: OAuthService,
-    private refreshService: OAuthRefreshService
+    private refreshService: OAuthRefreshService,
+    private crumb:BreadCrumbsService
   ) {
-    if (environment.allowAnonymous) { return; }
+    if (environment.allowAnonymous) {
+      return;
+    }
     if (isPlatformBrowser(this.platformId)) {
       this.oauthService.configure(authConfig);
       this.oauthService.tokenValidationHandler = new JwksValidationHandler();
@@ -32,7 +37,10 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (environment.allowAnonymous) { return; }
+    this.crumb.process();
+    if (environment.allowAnonymous) {
+      return;
+    }
     if (isPlatformBrowser(this.platformId)) {
       this.oauthService.events.subscribe(t => {
         console.log('events', t);

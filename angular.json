@@ -135,6 +135,41 @@
           }
         }
       }
+    },
+    "bread-crumbs": {
+      "root": "projects/bread-crumbs",
+      "sourceRoot": "projects/bread-crumbs/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/bread-crumbs/tsconfig.lib.json",
+            "project": "projects/bread-crumbs/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/bread-crumbs/src/test.ts",
+            "tsConfig": "projects/bread-crumbs/tsconfig.spec.json",
+            "karmaConfig": "projects/bread-crumbs/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/bread-crumbs/tsconfig.lib.json",
+              "projects/bread-crumbs/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "innovation"
