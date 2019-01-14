@@ -23,6 +23,12 @@
       ],
       "bread-crumbs/*": [
         "dist/bread-crumbs/*"
+      ],
+      "ngl-form-builder": [
+        "dist/ngl-form-builder"
+      ],
+      "ngl-form-builder/*": [
+        "dist/ngl-form-builder/*"
       ]
     }
   }

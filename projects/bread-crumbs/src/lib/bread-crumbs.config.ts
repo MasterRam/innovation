@@ -1,4 +1,4 @@
-import { InjectionToken } from "@angular/core";
+import { InjectionToken } from '@angular/core';
 
 export interface IOption {
   name: string;
@@ -10,11 +10,11 @@ export interface IOption {
 
 export interface BreadCrumbConfig {
   title: string;
-  prefix: string | "/";
+  prefix: string | '/';
   crumbs: IOption[];
 }
 
 // then define injectionToken
 export const BreadCrumbConfigService = new InjectionToken<BreadCrumbConfig>(
-  "BreadCrumbConfig"
+  'BreadCrumbConfig'
 );
