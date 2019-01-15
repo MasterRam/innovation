@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
     templateUrl: './blog-search.component.html'
 })
 
-export class BloagSearchComponent implements OnInit {
+export class BlogSearchComponent implements OnInit {
     constructor() { }
 
     ngOnInit() { }

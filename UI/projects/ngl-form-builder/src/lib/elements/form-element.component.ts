@@ -31,7 +31,7 @@ import { style } from '@angular/animations';
 
 export class FormElementComponent implements OnInit {
     @Input()
-    type: 'text' | 'number' | 'date' | 'checkbox' | 'radio' | 'password' | 'list';
+    type: string | 'text' | 'number' | 'date' | 'checkbox' | 'radio' | 'password' | 'list';
     @Input()
     required: boolean | false;
     @Input()

@@ -2,11 +2,14 @@
 
 # compiled output
 /dist
+/UI/dist
 /tmp
 /out-tsc
 
 # dependencies
 /node_modules
+/UI/node_modules
+/SERVER/node_modules
 
 # IDEs and editors
 /.idea

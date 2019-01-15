@@ -1,6 +1,6 @@
 
 export class FormInput {
-    type: 'text' | 'number' | 'date' | 'checkbox' | 'radio' | 'password' | 'list';
+    type: string | 'text' | 'number' | 'date' | 'checkbox' | 'radio' | 'password' | 'list';
     required: boolean | false;
     id: string;
     name: string;
