@@ -9,7 +9,7 @@
 # dependencies
 /node_modules
 /UI/node_modules
-/SERVER/node_modules
+/SERVER/**/node_modules
 
 # IDEs and editors
 /.idea
