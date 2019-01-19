@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "dev": "ts-node ./lib/server.ts",
-    "test": "node ./build/clean.js && tsc --build ./tsconfig.test.json && mocha ./test/**/*.spec.js && node ./build/clean.js",
+    "test": "node ./build/clean.js && tsc --build ./tsconfig.test.json && mocha ./dist.test/**/*.spec.js && node ./build/clean.js",
     "start": "nodemon ./dist/server.js",
     "prod": "npm run build && npm run start",
     "nf": "nodemon --watch './lib/**/*.ts' --exec ts-node ./lib/server.ts"
