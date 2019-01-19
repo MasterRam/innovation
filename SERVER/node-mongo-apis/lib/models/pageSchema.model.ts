@@ -11,7 +11,7 @@ export class Page {
 export const PageSchema = new Schema({
   title: {
     type: String,
-    required: "Enter a Page Title"
+    required: "Give a Title"
   },
   description: {
     type: String,
