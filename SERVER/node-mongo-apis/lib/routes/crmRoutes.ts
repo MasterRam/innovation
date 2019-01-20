@@ -1,8 +1,8 @@
 import {Request, Response} from "express";
-import { ContactController } from "../controllers/crmController";
+import { PageController } from "../controllers/page.controller";
 
 export class Routes {  
-    public contactController: ContactController = new ContactController();     
+    public pageController: PageController = new PageController();     
     public routes(app): void {          
         app.route('/')
         .get((req: Request, res: Response) => {            
@@ -22,7 +22,7 @@ export class Routes {
          // POST endpoint
          .post((req: Request, res: Response) => {   
          // Create new contact         
-             res.status(200).send(this.contactController.addNewContact)
+             res.status(200).send(this.pageController.addNewContact)
          })
  
          // Contact detail
