@@ -7,9 +7,9 @@
     "build": "tsc",
     "dev": "ts-node ./lib/server.ts",
     "test": "node ./build/clean.js && tsc --build ./tsconfig.test.json && mocha ./dist.test/**/*.spec.js && node ./build/clean.js",
-    "start": "nodemon ./dist/server.js",
+    "start1": "nodemon ./dist/server.js",
     "prod": "npm run build && npm run start",
-    "nf": "nodemon --watch './lib/**/*.ts' --exec ts-node ./lib/server.ts"
+    "start": "nodemon --watch './lib/**/*.ts' --exec ts-node ./lib/server.ts"
   },
   "keywords": [
     "Node",
@@ -19,6 +19,8 @@
   "author": "“Ramkumar <“ramkumar.murugarasan@hotmail.com”>",
   "license": "ISC",
   "dependencies": {
+    "@decorators/di": "^1.0.2",
+    "@decorators/express": "^2.3.0",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "mongoose": "^5.4.4",

@@ -1,4 +1,4 @@
-import { PageSchema } from "models/pageSchema.model";
+import { PageSchema } from "../models/pageSchema.model";
 import { model } from "mongoose";
 
 export class Schema {
