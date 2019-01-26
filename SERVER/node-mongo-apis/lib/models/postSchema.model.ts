@@ -1,24 +1,15 @@
-import { Schema } from "mongoose";
+import { Schema } from 'mongoose';
 
 
 export const PostSchema = new Schema({
     title: {
         type: String,
-        required: "Enter a Post Title"
+        required: 'Give a Title'
     },
-    layout: {
-        type: String,
-        required: "Enter a last name"
+    tags: {
+        type: [String]
     },
-    resource: {
-        type: String
-    },
-    action: {
-        type: String
-    },
-    enable_validation: {
-        type: Number
-    },
+    content: String,
     created_date: {
         type: Date
     },
@@ -27,3 +18,11 @@ export const PostSchema = new Schema({
         default: Date.now
     }
 });
+
+export class BlogPost {
+    title: string;
+    tags: string[];
+    content: string;
+    created_date: Date;
+    updated_date: Date;
+}

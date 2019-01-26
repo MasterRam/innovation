@@ -1,14 +1,14 @@
-import { PageSchema } from "../models/pageSchema.model";
-import { model } from "mongoose";
+import { model } from 'mongoose';
+import { PageSchema } from '../models/pageSchema.model';
 
 export class Schema {
 
     public getPage() {
-        return model("Page", PageSchema);
+        return;
     }
 
     public getForm() {
-        return model("Form", PageSchema);
+        return model('Form', PageSchema);
     }
 
 }

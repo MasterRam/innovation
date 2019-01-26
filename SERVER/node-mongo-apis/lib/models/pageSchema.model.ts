@@ -1,4 +1,4 @@
-import { Schema } from "mongoose";
+import { Schema } from 'mongoose';
 
 export class Page {
   title: string;
@@ -11,7 +11,7 @@ export class Page {
 export const PageSchema = new Schema({
   title: {
     type: String,
-    required: "Give a Title"
+    required: 'Give a Title'
   },
   description: {
     type: String,
@@ -28,3 +28,4 @@ export const PageSchema = new Schema({
     default: Date.now
   }
 });
+

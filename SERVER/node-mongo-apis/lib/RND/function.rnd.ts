@@ -1,5 +1,5 @@
-export const testFunc=(prop,day)=>{
-return "fsdsdf";
+export const testFunc = (prop, day) => {
+
 };
 
 

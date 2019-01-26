@@ -1,4 +1,4 @@
-import { Schema } from "mongoose";
+import { Schema } from 'mongoose';
 
 export class Form {
     title: string;
@@ -22,11 +22,11 @@ export class Property {
 export const PropertySchema = new Schema({
     name: {
         type: String,
-        required: "Give a property name"
+        required: 'Give a property name'
     },
     type: {
         type: String,
-        required: "Give a property type"
+        required: 'Give a property type'
     },
     placeholder: {
         type: String,
@@ -53,10 +53,12 @@ export const PropertySchema = new Schema({
 export const FormSchema = new Schema({
     title: {
         type: String,
-        required: "Give a Title"
+        required: 'Give a Title'
     },
     layout: {
         type: String,
+        default: 'column1',
+        enum: ['column1', 'column2', 'column3']
     },
     validation: {
         type: Boolean,

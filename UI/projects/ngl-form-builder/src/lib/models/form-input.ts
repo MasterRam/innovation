@@ -12,5 +12,6 @@ export class FormInput {
 
 export class FormInputCollection {
     title: string;
+    layout: string | 'column1' | 'column2' | 'column3';
     elements: FormInput[];
 }
