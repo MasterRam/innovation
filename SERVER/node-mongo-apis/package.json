@@ -22,12 +22,14 @@
     "@decorators/di": "^1.0.2",
     "@decorators/express": "^2.3.0",
     "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
     "express": "^4.16.4",
     "mongoose": "^5.4.4",
     "nodemon": "^1.18.9"
   },
   "devDependencies": {
     "@types/chai": "^4.1.7",
+    "@types/cors": "^2.8.4",
     "@types/express": "^4.16.0",
     "@types/mocha": "^5.2.5",
     "@types/mongoose": "^5.3.7",

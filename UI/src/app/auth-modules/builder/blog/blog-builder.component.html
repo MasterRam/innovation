@@ -1,22 +1,33 @@
 <h3>Add / Edit Post</h3>
-<p>
-    To create New Page
-</p>
-<form>
-    
-    <div class="form-group">
-        <input type="text" class="form-control" placeholder="Page Name">
+<p>To create New Page</p>
+<form (submit)="submit();">
+  <div class="form-group">
+    <input
+      name="post.title"
+      type="text"
+      class="form-control"
+      [(ngModel)]="post.title"
+      placeholder="Page Name"
+    />
+  </div>
+  <div class="form-group">
+    <tag-input [(ngModel)]="post.tags" name="post.tags" (onTagEdited)="onTagEdited($event)"></tag-input>
+  </div>
+  <div class="form-group">
+    <ckeditor name="post.content"
+      [editor]="Editor"
+      [(ngModel)]="post.content"
+      (ready)="onReady($event)"
+    ></ckeditor>
+  </div>
+  <div class="form-group">
+    <div class="row">
+      <div class="offset-md-10 col-1">
+        <button class="col btn btn-primary" type="submit">Save</button>
+      </div>
+      <div class="col-1">
+        <button class="col btn btn-default">Cancel</button>
+      </div>
     </div>
-    <div class="form-group">
-            <tag-input [(ngModel)]='items' name="first"></tag-input>
-    </div>    
-    <div class="form-group">
-            <ckeditor [editor]="Editor" data="<p>Hello, world!</p>" (ready)="onReady($event)"></ckeditor>
-    </div>
-    <div class="form-group">
-        <div class="row"> 
-            <div class="offset-md-10 col-1"><button class="col btn btn-primary">Save</button></div>
-            <div class="col-1"><button class="col btn btn-default">Cancel</button></div>
-        </div>
-    </div>
+  </div>
 </form>

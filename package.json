@@ -1,0 +1,10 @@
+{
+  "name": "innovation",
+  "version": "0.0.0",
+  "scripts": {
+    "start": "cd UI && npm start",
+    "start:server": "cd SERVER/node-mongo-apis && npm start",
+    "watch:server": "cd SERVER/node-mongo-apis && npm run watch"
+  },
+  "private": true
+}

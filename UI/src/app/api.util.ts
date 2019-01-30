@@ -1,5 +1,15 @@
 const apiConst = [
   {
+    name: "blog-api",
+    domain: "localhost",
+    port: "3000",
+    suffix: undefined,
+    isHTTPS: false,
+    headers: {
+      ["content-type"]: "application/x-www-form-urlencoded"
+    }
+  },
+  {
     name: "product-api",
     domain: "localhost",
     port: "3001",
