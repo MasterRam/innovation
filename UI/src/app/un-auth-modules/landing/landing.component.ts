@@ -1,6 +1,6 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { OAuthService } from 'angular-oauth2-oidc';
 import { Router } from '@angular/router';
+import { OAuthService } from 'angular-oauth2-oidc';
 import { initAnimation } from 'src/app/main-script';
 
 @Component({
@@ -13,7 +13,7 @@ export class LandingComponent implements OnInit {
     @ViewChild('userName')
     userNameTemplate: TemplateRef<any>;
     isLoggedIn = false;
-    constructor(private oauthService: OAuthService,private router:Router) { }
+    constructor(private oauthService: OAuthService, private router: Router) { }
 
     ngOnInit() {
         if (this.oauthService.hasValidAccessToken()) {

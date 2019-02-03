@@ -124,7 +124,9 @@
       "use-pipe-transform-interface": true,
       "component-class-suffix": true,
       "directive-class-suffix": true,
-      "ordered-imports":true
-    }
+      "ordered-imports":true,
+      "autoFixOnSave": true,
+    },
+    "autoFixOnSave": true
   }
   

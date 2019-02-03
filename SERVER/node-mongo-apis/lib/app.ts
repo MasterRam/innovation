@@ -7,7 +7,7 @@ import { CorsOptionsLocal } from "./CORSHandler";
 
 class App {
   public mongoUrl = "mongodb://localhost:27017/Innovation";
-  public app: express.Application;
+  public app: express.Application; 
   public routePrv: Routes = new Routes();
 
   constructor() {

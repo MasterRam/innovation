@@ -1,4 +1,5 @@
 {
+    "autoFixOnSave":true,
     "extends": "../tslint.json",
     "rules": {
         "directive-selector": [

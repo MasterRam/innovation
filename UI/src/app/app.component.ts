@@ -1,12 +1,12 @@
-import { Component, PLATFORM_ID, Inject, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { OAuthService, JwksValidationHandler } from 'angular-oauth2-oidc';
-import { authConfig } from './identity/auth-config';
 import { isPlatformBrowser } from '@angular/common';
-import './main-script';
-import { OAuthRefreshService } from './identity/auth-refresh';
-import { environment } from 'src/environments/environment';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { Router } from '@angular/router';
+import { JwksValidationHandler, OAuthService } from 'angular-oauth2-oidc';
 import { BreadCrumbsService } from 'projects/bread-crumbs/src/lib/bread-crumbs.service';
+import { environment } from 'src/environments/environment';
+import { authConfig } from './identity/auth-config';
+import { OAuthRefreshService } from './identity/auth-refresh';
+import './main-script';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +15,7 @@ import { BreadCrumbsService } from 'projects/bread-crumbs/src/lib/bread-crumbs.s
 })
 export class AppComponent implements OnInit {
   title = 'source';
-  
+
   /**
    *
    */
@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
     private router: Router,
     private oauthService: OAuthService,
     private refreshService: OAuthRefreshService,
-    private crumb:BreadCrumbsService
+    private crumb: BreadCrumbsService
   ) {
     if (environment.allowAnonymous) {
       return;

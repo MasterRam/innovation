@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { LoginModel } from '../models/login.model';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { OAuthService } from 'angular-oauth2-oidc';
 import { HttpHeaders } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { OAuthService } from 'angular-oauth2-oidc';
 import { userConfig } from 'src/app/identity/user-config';
 import { environment } from 'src/environments/environment';
+import { LoginModel } from '../models/login.model';
 
 @Component({
   selector: 'app-login',
@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
   }
 
   submit() {
-    if (environment.allowAnonymous) {  this.router.navigate(['/home']); return; }
+    if (environment.allowAnonymous) { this.router.navigate(['/home']); return; }
     const headers = new HttpHeaders({
       'content-type': 'application/x-www-form-urlencoded',
       authorization: btoa(

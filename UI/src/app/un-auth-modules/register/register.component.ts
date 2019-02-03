@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { LoginModel } from '../models/login.model';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { OAuthService } from 'angular-oauth2-oidc';
-import { Router } from '@angular/router';
 import { HttpHeaders } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { OAuthService } from 'angular-oauth2-oidc';
 import { userConfig } from 'src/app/identity/user-config';
+import { LoginModel } from '../models/login.model';
 
 @Component({
   selector: 'app-register',

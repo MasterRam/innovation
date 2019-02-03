@@ -1,42 +1,42 @@
 const apiConst = [
   {
-    name: "blog-api",
-    domain: "localhost",
-    port: "3000",
+    name: 'blog-api',
+    domain: 'localhost',
+    port: '3000',
     suffix: undefined,
     isHTTPS: false,
     headers: {
-      ["content-type"]: "application/x-www-form-urlencoded"
+      ['content-type']: 'application/x-www-form-urlencoded'
     }
   },
   {
-    name: "product-api",
-    domain: "localhost",
-    port: "3001",
+    name: 'product-api',
+    domain: 'localhost',
+    port: '3001',
     suffix: undefined,
     isHTTPS: false,
     headers: {
-      ["content-type"]: "application/x-www-form-urlencoded"
+      ['content-type']: 'application/x-www-form-urlencoded'
     }
   },
   {
-    name: "identity",
-    domain: "localhost",
-    port: "5000",
+    name: 'identity',
+    domain: 'localhost',
+    port: '5000',
     // suffix: '',
     isHTTPS: false,
     headers: {
-      ["content-type"]: "application/x-www-form-urlencoded"
+      ['content-type']: 'application/x-www-form-urlencoded'
     }
   },
   {
-    name: "blog-json",
-    domain: "localhost",
-    port: "4200",
-    suffix: "assets/samples/blog",
+    name: 'blog-json',
+    domain: 'localhost',
+    port: '4200',
+    suffix: 'assets/samples/blog',
     isHTTPS: false,
     headers: {
-      ["content-type"]: "application/x-www-form-urlencoded"
+      ['content-type']: 'application/x-www-form-urlencoded'
     }
   }
 ];
@@ -48,7 +48,7 @@ export interface IApiParam {
   queryParam?: object;
 }
 export interface IDataLoadURL {
-  method: "POST" | "GET" | "DELETE" | "PUT";
+  method: 'POST' | 'GET' | 'DELETE' | 'PUT';
   url: string;
   hostName: string;
   uiElement: string;
@@ -58,19 +58,19 @@ export interface IDataLoadURL {
 export const GetFullURL = (hostName: string, url: string): string => {
   const apiData = apiConst.find(t => t.name === hostName);
   if (apiData === undefined) {
-    throw Error("Host data not defined");
+    throw Error('Host data not defined');
   }
 
-  const http = apiData.isHTTPS ? "https://" : "http://";
-  const port = apiData.port === undefined ? "" : `:${apiData.port}`;
-  const suffix = apiData.suffix === undefined ? "" : `/${apiData.suffix}`;
+  const http = apiData.isHTTPS ? 'https://' : 'http://';
+  const port = apiData.port === undefined ? '' : `:${apiData.port}`;
+  const suffix = apiData.suffix === undefined ? '' : `/${apiData.suffix}`;
   return `${http + apiData.domain + port}${suffix}/${url}`;
 };
 
 export const GetHeaders = (hostName: string): object => {
   const apiData = apiConst.find(t => t.name === hostName);
   if (apiData === undefined) {
-    throw Error("Host data not defined");
+    throw Error('Host data not defined');
   }
   if (apiData.headers === undefined) {
     return {};
@@ -81,10 +81,10 @@ export const GetHeaders = (hostName: string): object => {
 };
 
 const reset = () => {
-  const gettoken = localStorage.getItem("il.a_tk");
+  const gettoken = localStorage.getItem('il.a_tk');
   if (gettoken) {
     apiConst.forEach(t => {
-      t.headers["Authorization"] = gettoken;
+      t.headers['Authorization'] = gettoken;
     });
   } else {
   }

@@ -1,14 +1,12 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './identity/auth-guard';
+import { UnAuthGuard } from './identity/un-auth-guard';
+import { GetStartedComponent } from './un-auth-modules/get-started/get-started.component';
 import { LandingComponent } from './un-auth-modules/landing/landing.component';
 import { LoginComponent } from './un-auth-modules/login/login.component';
-import { UnAuthGuard } from './identity/un-auth-guard';
 import { RegisterComponent } from './un-auth-modules/register/register.component';
 import { UnAuthModule } from './un-auth-modules/un-auth.module';
-import { GetStartedComponent } from './un-auth-modules/get-started/get-started.component';
-import { PageComponent } from './auth-modules/page/page.component';
-import { BlogHolderComponent } from './auth-modules/blog/holder/blog-holder.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
