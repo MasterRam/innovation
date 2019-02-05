@@ -1,10 +1,12 @@
 {
-  "name": "bread-crumbs",
+  "name": "auth",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^7.0.0",
     "@angular/core": "^7.0.0",
-    "@angular/router": "~7.0.0",
-    "rxjs": "~6.3.3"
+    "auth0-js": "^9.10.0"
+  },
+  "devDependencies": {
+    "@types/auth0-js": "^8.11.11"
   }
 }

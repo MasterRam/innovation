@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NglFormBuilderComponent } from './ngl-form-builder.component';
+import { NglFormBuilderComponent } from './form-builder.component';
 
 describe('NglFormBuilderComponent', () => {
   let component: NglFormBuilderComponent;

@@ -1,5 +1,5 @@
 {
-  "name": "ngl-form-builder",
+  "name": "form-builder",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^7.0.0",

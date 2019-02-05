@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { NglFormBuilderService } from './ngl-form-builder.service';
+import { NglFormBuilderService } from './form-builder.service';
 
 describe('NglFormBuilderService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));

@@ -3,7 +3,7 @@ import { FormInputCollection } from './models/form-input';
 
 @Component({
   selector: 'ngl-form-builder',
-  templateUrl: './ngl-form-builder.component.html',
+  templateUrl: './form-builder.component.html',
   styles: []
 })
 export class NglFormBuilderComponent implements OnInit {

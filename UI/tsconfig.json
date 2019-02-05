@@ -25,11 +25,17 @@
       "bread-crumbs/*": [
         "dist/bread-crumbs/*"
       ],
-      "ngl-form-builder": [
-        "dist/ngl-form-builder"
+      "form-builder": [
+        "dist/form-builder"
       ],
-      "ngl-form-builder/*": [
-        "dist/ngl-form-builder/*"
+      "form-builder/*": [
+        "dist/form-builder/*"
+      ],
+      "auth": [
+        "dist/auth"
+      ],
+      "auth/*": [
+        "dist/auth/*"
       ]
     }
   }
