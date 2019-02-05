@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { AuthService } from "../public_api";
+import { AuthService } from "./auth.service";
 
 @Component({
   selector: "ngl-auth",
