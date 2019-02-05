@@ -1,6 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { WebAuth } from 'auth0-js';
+import { AuthConfigService, IAuthOptions } from './auth.config';
 
 @Injectable({
   providedIn: 'root'
@@ -10,18 +11,14 @@ export class AuthService {
   private _accessToken: string;
   private _expiresAt: number;
 
-  auth0 = new WebAuth({
-    clientID: 'YOUR_CLIENT_ID',
-    domain: 'YOUR_AUTH0_DOMAIN',
-    responseType: 'token id_token',
-    redirectUri: 'http://localhost:3000/callback',
-    scope: 'openid'
-  });
+  private _auth0: WebAuth;
 
-  constructor(public router: Router) {
+  constructor(@Inject(AuthConfigService) private config: IAuthOptions,
+    public router: Router) {
     this._idToken = '';
     this._accessToken = '';
     this._expiresAt = 0;
+    this._auth0 = new WebAuth(config);
   }
 
   get accessToken(): string {
@@ -33,12 +30,12 @@ export class AuthService {
   }
 
   public login(): void {
-    this.auth0.authorize();
+    this._auth0.authorize();
   }
 
   // ...
   public handleAuthentication(): void {
-    this.auth0.parseHash((err, authResult) => {
+    this._auth0.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
         window.location.hash = '';
         this.localLogin(authResult);
@@ -61,12 +58,12 @@ export class AuthService {
   }
 
   public renewTokens(): void {
-    this.auth0.checkSession({}, (err, authResult) => {
+    this._auth0.checkSession({}, (err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.localLogin(authResult);
       } else if (err) {
         alert(
-          `Could not get a new token (${err.error}: ${err.error_description}).`
+          `Could not get a new token (${err.error}: ${err['error_description']}).`
         );
         this.logout();
       }

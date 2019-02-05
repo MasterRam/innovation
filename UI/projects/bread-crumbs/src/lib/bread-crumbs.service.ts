@@ -1,18 +1,18 @@
-import { Injectable, Inject } from "@angular/core";
-import { Router, NavigationEnd } from "@angular/router";
+import { Inject, Injectable } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 
-import { Observable, of } from "rxjs";
+import { Observable, of } from 'rxjs';
 import {
-  IOption,
+  BreadCrumbConfig,
   BreadCrumbConfigService,
-  BreadCrumbConfig
-} from "./bread-crumbs.config";
+  IOption
+} from './bread-crumbs.config';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class BreadCrumbsService {
-  prefix: string = "/";
+  prefix = '/';
   crumbOptions: IOption[] = [];
   crumbs: Observable<IOption[]>;
   constructor(
@@ -25,7 +25,7 @@ export class BreadCrumbsService {
   process() {
     this.router.events.subscribe(t => {
       if (t instanceof NavigationEnd) {
-        if (!t.url.startsWith(this.prefix)) return;
+        if (!t.url.startsWith(this.prefix)) { return; }
         this.updateCrumbs(t.url);
       }
     });
@@ -42,7 +42,7 @@ export class BreadCrumbsService {
       }
     });
     tempCrumbs = tempCrumbs.sort(t => t.order);
-    if (tempCrumbs.length > 0) tempCrumbs[tempCrumbs.length - 1].active = true;
+    if (tempCrumbs.length > 0) { tempCrumbs[tempCrumbs.length - 1].active = true; }
     this.crumbs = of(tempCrumbs);
   }
 }

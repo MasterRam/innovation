@@ -1,8 +1,8 @@
-import { Component, OnInit } from "@angular/core";
-import { AuthService } from "./auth.service";
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from './auth.service';
 
 @Component({
-  selector: "ngl-auth",
+  selector: 'ngl-auth',
   template: `
     <button
       class="btn btn-primary btn-margin"
@@ -28,7 +28,7 @@ export class AuthComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (localStorage.getItem("isLoggedIn") === "true") {
+    if (localStorage.getItem('isLoggedIn') === 'true') {
       this.auth.renewTokens();
     }
   }
