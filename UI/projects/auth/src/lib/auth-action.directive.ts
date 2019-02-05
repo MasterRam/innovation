@@ -1,4 +1,5 @@
 import { Directive } from "@angular/core";
+import { AuthService } from "./auth.service";
 
 
 @Directive({ selector: "[ngl-auth-action]" })
