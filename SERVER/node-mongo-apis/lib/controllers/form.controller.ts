@@ -1,12 +1,19 @@
 import { Injectable } from '@decorators/di';
-import { Body, Controller, Get, Params, Post, Response } from '@decorators/express';
+import {
+  Body,
+  Controller,
+  Get,
+  Params,
+  Post,
+  Response
+} from '@decorators/express';
 import { FormDocument } from '../models/documents';
 import { Form } from '../models/formSchema.model';
 
 @Controller('/api/form')
 @Injectable()
 export class FormController {
-  constructor() { }
+  constructor() {}
 
   @Get('/:id')
   getData(@Response() res, @Params('id') id: string) {

@@ -1,15 +1,14 @@
-import { Directive } from "@angular/core";
-import { AuthService } from "./auth.service";
+import { AuthService } from './auth.service';
+import { Directive } from '@angular/core';
 
-
-@Directive({ selector: "[ngl-auth-action]" })
+@Directive({ selector: '[ngl-auth-action]' })
 export class AuthActionDirective {
   constructor(public auth: AuthService) {
     auth.handleAuthentication();
   }
 
   ngOnInit() {
-    if (localStorage.getItem("isLoggedIn") === "true") {
+    if (localStorage.getItem('isLoggedIn') === 'true') {
       this.auth.renewTokens();
     }
   }

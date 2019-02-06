@@ -1,4 +1,4 @@
-import { Schema } from "mongoose";
+import { Schema } from 'mongoose';
 
 export const TagSchema = new Schema({
   display: {
@@ -12,12 +12,12 @@ export const TagSchema = new Schema({
 export const PostSchema = new Schema({
   title: {
     type: String,
-    required: "Give a Title"
+    required: 'Give a Title'
   },
   tags: [TagSchema],
   content: {
     type: String,
-    required: "Give a Title"
+    required: 'Give a Title'
   },
   created_date: {
     type: Date

@@ -14,10 +14,10 @@ export const PageSchema = new Schema({
     required: 'Give a Title'
   },
   description: {
-    type: String,
+    type: String
   },
   content: {
-    type: String,
+    type: String
   },
   created_date: {
     type: Date,
@@ -28,4 +28,3 @@ export const PageSchema = new Schema({
     default: Date.now
   }
 });
-

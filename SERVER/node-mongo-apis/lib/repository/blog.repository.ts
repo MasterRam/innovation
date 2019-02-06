@@ -1,5 +1,5 @@
-import { PostDocument } from "../models/documents";
-import { BlogPost } from "../models/postSchema.model";
+import { PostDocument } from '../models/documents';
+import { BlogPost } from '../models/postSchema.model';
 
 export class BlogRepository {
   constructor() {}
@@ -21,14 +21,18 @@ export class BlogRepository {
   ) {
     const document = new PostDocument(data);
     let error: Error | any;
-    if ((error = document.validateSync()) === undefined) {                  
-      PostDocument.create(data, (updatedData) => {        
-        callback(true, updatedData);
-      },(err)=>{
-        if (err) {
-          callback(false, err);
+    if ((error = document.validateSync()) === undefined) {
+      PostDocument.create(
+        data,
+        updatedData => {
+          callback(true, updatedData);
+        },
+        err => {
+          if (err) {
+            callback(false, err);
+          }
         }
-      });
+      );
     } else {
       callback(false, error.errors);
     }

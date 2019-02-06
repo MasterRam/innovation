@@ -42,4 +42,4 @@ import { UnAuthGuard } from './identity/un-auth-guard';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

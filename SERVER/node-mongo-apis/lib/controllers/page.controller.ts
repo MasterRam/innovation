@@ -1,5 +1,12 @@
 import { Injectable } from '@decorators/di';
-import { Body, Controller, Get, Params, Post, Response } from '@decorators/express';
+import {
+  Body,
+  Controller,
+  Get,
+  Params,
+  Post,
+  Response
+} from '@decorators/express';
 import { PageDocument } from '../models/documents';
 import { Page } from '../models/pageSchema.model';
 import { PageRepository } from '../repository/page.repository';
@@ -7,7 +14,7 @@ import { PageRepository } from '../repository/page.repository';
 @Controller('/api/page')
 @Injectable()
 export class PageController {
-  constructor(private service: PageRepository= new PageRepository()) { }
+  constructor(private service: PageRepository = new PageRepository()) {}
 
   @Get('/:id')
   getData(@Response() res, @Params('id') id: string) {
@@ -21,6 +28,5 @@ export class PageController {
     this.service.Add({ title: id }, data, (success, response) => {
       res.send(response);
     });
-
   }
 }

@@ -1,5 +1,1 @@
-export const testFunc = (prop, day) => {
-
-};
-
-
+export const testFunc = (prop, day) => {};
