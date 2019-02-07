@@ -10,7 +10,7 @@ export const environment = {
     domain: 'ilucytry.auth0.com', // 'YOUR_AUTH0_DOMAIN',
     responseType: 'token id_token',
     redirectUri: 'http://localhost:4200/callback',
-    scope: 'openid'
+    scope: 'openid email profile'
   },
   services: [
     {

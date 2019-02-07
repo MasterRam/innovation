@@ -4,6 +4,7 @@ import { AuthService } from './auth.service';
 @Component({
   selector: 'ngl-auth',
   template: `
+    {{ auth.userInfo | json }}
     <button
       class="btn btn-primary btn-margin"
       *ngIf="!auth.isAuthenticated()"
@@ -24,12 +25,12 @@ import { AuthService } from './auth.service';
 })
 export class AuthComponent implements OnInit {
   constructor(public auth: AuthService) {
-    auth.handleAuthentication();
+    auth.handleAuthentication(undefined);
   }
 
   ngOnInit() {
     if (localStorage.getItem('isLoggedIn') === 'true') {
-      this.auth.renewTokens();
+      this.auth.renewTokens(undefined);
     }
   }
 }
