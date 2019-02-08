@@ -1,5 +1,5 @@
-import { PostDocument } from '../models/documents';
-import { BlogPost } from '../models/postSchema.model';
+import { BlogDocument } from '../../models/documents';
+import { BlogPost } from './blogSchema.model';
 
 export class BlogRepository {
   constructor() {}
@@ -7,7 +7,7 @@ export class BlogRepository {
     findQuery: any,
     callback: (success: boolean, response: any) => void
   ) {
-    PostDocument.findOne(findQuery, (err, data) => {
+    BlogDocument.findOne(findQuery, (err, data) => {
       if (err) {
         callback(false, err);
       }
@@ -19,10 +19,10 @@ export class BlogRepository {
     data: BlogPost,
     callback: (success: boolean, response: any) => void
   ) {
-    const document = new PostDocument(data);
+    const document = new BlogDocument(data);
     let error: Error | any;
     if ((error = document.validateSync()) === undefined) {
-      PostDocument.create(
+      BlogDocument.create(
         data,
         updatedData => {
           callback(true, updatedData);

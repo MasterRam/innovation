@@ -9,13 +9,13 @@ import {
   Request,
   Query
 } from '@decorators/express';
-import { PostDocument } from '../models/documents';
-import { BlogPost } from '../models/postSchema.model';
-import { BlogRepository } from '../repository/blog.repository';
+import { BlogDocument } from '../../models/documents';
+import { BlogPost } from './blogSchema.model';
+import { BlogRepository } from './blog.repository';
 
 @Controller('/api/blog')
 @Injectable()
-export class PostController {
+export class BlogController {
   constructor(private service = new BlogRepository()) {}
 
   @Get('/get')

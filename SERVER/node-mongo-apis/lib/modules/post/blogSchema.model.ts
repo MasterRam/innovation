@@ -9,7 +9,7 @@ export const TagSchema = new Schema({
   }
 });
 
-export const PostSchema = new Schema({
+export const BlogSchema = new Schema({
   title: {
     type: String,
     required: 'Give a Title'

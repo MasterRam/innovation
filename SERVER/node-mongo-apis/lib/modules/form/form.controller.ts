@@ -7,8 +7,8 @@ import {
   Post,
   Response
 } from '@decorators/express';
-import { FormDocument } from '../models/documents';
-import { Form } from '../models/formSchema.model';
+import { FormDocument } from '../../models/documents';
+import { Form } from './formSchema.model';
 
 @Controller('/api/form')
 @Injectable()

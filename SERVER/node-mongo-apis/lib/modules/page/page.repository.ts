@@ -1,5 +1,5 @@
-import { PageDocument } from '../models/documents';
-import { Page } from '../models/pageSchema.model';
+import { PageDocument } from '../../models/documents';
+import { Page } from './pageSchema.model';
 
 export class PageRepository {
   constructor() {}

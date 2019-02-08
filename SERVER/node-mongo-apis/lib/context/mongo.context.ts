@@ -1,5 +1,5 @@
 import { model } from 'mongoose';
-import { PageSchema } from '../models/pageSchema.model';
+import { PageSchema } from '../modules/page/pageSchema.model';
 
 export class Schema {
 
