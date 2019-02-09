@@ -1,7 +1,7 @@
-import { Injectable } from "@angular/core";
-import { ApiService } from "src/app/api.service";
-import { BlogModel } from "./blog.model";
-import { BlogBuilderApi } from "./blog-builder.api";
+import { Injectable } from '@angular/core';
+import { ApiService } from 'src/app/api.service';
+import { BlogBuilderApi } from './blog-builder.api';
+import { BlogModel } from './blog.model';
 
 @Injectable()
 export class BlogBuilderService {
@@ -15,11 +15,11 @@ export class BlogBuilderService {
       queryParam: { name: blogName }
     });
   }
-  postBlog(blogName: string, blog: any) {
+  postBlog(id: string, blog: any) {
     const post = Object.assign({}, BlogBuilderApi.BlogPOST);
-    post.url = `${BlogBuilderApi.BlogPOST.url}/${blogName}`;
     return this.api.request<BlogModel>({
       urlObj: post,
+      queryParam: {id},
       body: blog
     });
   }

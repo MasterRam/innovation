@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { BlogModel } from './models/blog.model';
-import { Router, Route, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { BlogService } from './blog.service';
+import { BlogModel } from './models/blog.model';
 
 @Component({
     selector: 'app-blog',
@@ -17,7 +17,8 @@ export class BlogComponent implements OnInit {
         this.route.params.subscribe(s => {
             console.log(s['blog_name']);
             this.blog.title = s['blog_name'];
-            this.service.GetBlogSample(this.blog.title).subscribe(t => {
+            this.service.getBlog(this.blog.title).subscribe(t => {
+                if (!t) { return; }
                 this.blog.title = t.title;
                 this.blog.tags = t.tags;
                 this.blog.author = t.author;

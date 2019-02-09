@@ -1,8 +1,9 @@
 <h3 class="pb-3 mb-4 font-italic border-bottom">
         {{blog.title}}
 </h3>
+<p><strong class="d-inline-block mb-2 text-success" *ngFor="let item of blog.tags">{{item.display}}</strong></p>
 <div *ngIf="!blog.no_content" class="blog-post">
     <h2 class="blog-post-title">{{blog.description}}</h2>
     <p  class="blog-post-meta">{{blog.created_at}} by <a href="#">{{blog.author}}</a></p>
-    <div [innerHTML]="blog.content"></div>
+    <div [innerHTML]="blog.content" style="word-break: break-word;"></div>
 </div>

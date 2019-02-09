@@ -1,8 +1,8 @@
 import { BlogDocument } from '../../models/documents';
-import { BlogPost } from './blogSchema.model';
+import { BlogModel } from './blogSchema.model';
 
 export class BlogRepository {
-  constructor() {}
+  constructor() { }
   public findBy(
     findQuery: any,
     callback: (success: boolean, response: any) => void
@@ -14,25 +14,33 @@ export class BlogRepository {
       callback(true, data);
     });
   }
+
+  public findAll(
+    callback: (success: boolean, response: any) => void
+  ) {
+    BlogDocument.find((err, data) => {
+      if (err) {
+        callback(false, err);
+      }
+      callback(true, data);
+    });
+  }
+
   public Add(
-    findQuery: any,
-    data: BlogPost,
+    id: any,
+    data: BlogModel,
     callback: (success: boolean, response: any) => void
   ) {
     const document = new BlogDocument(data);
     let error: Error | any;
     if ((error = document.validateSync()) === undefined) {
-      BlogDocument.create(
-        data,
-        updatedData => {
+      BlogDocument.update({ _id: id }, document,{upsert:true}, (err, updatedData) => {
+        if (err) {
+          callback(false, err);
+        } else {
           callback(true, updatedData);
-        },
-        err => {
-          if (err) {
-            callback(false, err);
-          }
         }
-      );
+      });
     } else {
       callback(false, error.errors);
     }

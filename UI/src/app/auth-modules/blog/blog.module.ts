@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 
-import { BlogHolderComponent } from './holder/blog-holder.component';
-import { RouterModule } from '@angular/router';
-import { BlogComponent } from './blog.component';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { BlogArchiveComponent } from './archive/blog-archive.component';
+import { BlogComponent } from './blog.component';
 import { BlogService } from './blog.service';
+import { BlogHolderComponent } from './holder/blog-holder.component';
 import { BlogSearchComponent } from './search/blog-search.component';
 
 @NgModule({

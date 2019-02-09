@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { BlogComponent } from './blog.component';
 import { BlogModule } from './blog.module';
 import { BlogHolderComponent } from './holder/blog-holder.component';
-import { BlogComponent } from './blog.component';
 
 const routes: Routes = [{
     path: '',
