@@ -18,11 +18,11 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent, canActivate: [UnAuthGuard] },
   {
     path: 'page',
-    loadChildren: './auth-modules/page/page-routing.module#PageRoutingModule'
+    loadChildren: './common-modules/page/page-routing.module#PageRoutingModule'
   },
   {
     path: 'blog',
-    loadChildren: './auth-modules/blog/blog-routing.module#BlogRoutingModule'
+    loadChildren: './common-modules/blog/blog-routing.module#BlogRoutingModule'
   },
   {
     path: 'app',

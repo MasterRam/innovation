@@ -12,6 +12,7 @@ import {
 import { BlogDocument } from '../../models/documents';
 import { BlogModel } from './blogSchema.model';
 import { BlogRepository } from './blog.repository';
+import { ObjectId } from 'bson';
 
 @Controller('/api/blog')
 @Injectable()
@@ -32,9 +33,9 @@ export class BlogController {
     })
   }
   @Post('/post')
-  postData(@Response() res, @Query('id') id: string, @Body() data: BlogModel) {
-    if(id===undefined||id==='undefined')
-    id=null;
+  postData(@Response() res, @Query('id') id: any, @Body() data: BlogModel) {
+    if(id===undefined||id==='undefined'||id==='null'||id===null)
+    id=new ObjectId();
     data._id = id;
     data.normalized_title = data.title.replace(/ /g, '_').toLowerCase();
     this.service.Add( id , data, (success, response) => {
