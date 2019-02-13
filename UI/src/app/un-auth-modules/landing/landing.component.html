@@ -21,7 +21,7 @@
                 </div>
                 <ul class="header-links list-reset m-0">
                     <ng-template #userName let-x="$implicit">
-                        <a href="javascript:;" (click)="login();">Login</a>
+                        <a href="javascript:;" ngl-auth-action >Login</a>
                     </ng-template>
                     <li *ngIf="isLoggedIn;else userName">
                         <a href="javascript:;">Hi {{username}}!</a>

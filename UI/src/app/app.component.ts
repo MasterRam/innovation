@@ -7,6 +7,7 @@ import { environment } from 'src/environments/environment';
 import { authConfig } from './identity/auth-config';
 import { OAuthRefreshService } from './identity/auth-refresh';
 import './main-script';
+import { AuthService } from 'projects/auth/src/public_api';
 
 @Component({
   selector: 'app-root',
@@ -24,8 +25,10 @@ export class AppComponent implements OnInit {
     private router: Router,
     private oauthService: OAuthService,
     private refreshService: OAuthRefreshService,
-    private crumb: BreadCrumbsService
+    private crumb: BreadCrumbsService,
+    private auth: AuthService
   ) {
+    auth.handleAuthentication(undefined);
     if (environment.allowAnonymous) {
       return;
     }

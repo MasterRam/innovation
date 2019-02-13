@@ -1,45 +1,4 @@
-const apiConst = [
-  {
-    name: 'blog-api',
-    domain: 'localhost',
-    port: '3000',
-    suffix: undefined,
-    isHTTPS: false,
-    headers: {
-      ['content-type']: 'application/x-www-form-urlencoded'
-    }
-  },
-  {
-    name: 'product-api',
-    domain: 'localhost',
-    port: '3001',
-    suffix: undefined,
-    isHTTPS: false,
-    headers: {
-      ['content-type']: 'application/x-www-form-urlencoded'
-    }
-  },
-  {
-    name: 'identity',
-    domain: 'localhost',
-    port: '5000',
-    // suffix: '',
-    isHTTPS: false,
-    headers: {
-      ['content-type']: 'application/x-www-form-urlencoded'
-    }
-  },
-  {
-    name: 'blog-json',
-    domain: 'localhost',
-    port: '4200',
-    suffix: 'assets/samples/blog',
-    isHTTPS: false,
-    headers: {
-      ['content-type']: 'application/x-www-form-urlencoded'
-    }
-  }
-];
+import { environment } from 'src/environments/environment';
 
 export interface IApiParam {
   urlObj: IDataLoadURL;
@@ -56,7 +15,7 @@ export interface IDataLoadURL {
 }
 
 export const GetFullURL = (hostName: string, url: string): string => {
-  const apiData = apiConst.find(t => t.name === hostName);
+  const apiData = environment.services.find(t => t.name === hostName);
   if (apiData === undefined) {
     throw Error('Host data not defined');
   }
@@ -68,7 +27,7 @@ export const GetFullURL = (hostName: string, url: string): string => {
 };
 
 export const GetHeaders = (hostName: string): object => {
-  const apiData = apiConst.find(t => t.name === hostName);
+  const apiData = environment.services.find(t => t.name === hostName);
   if (apiData === undefined) {
     throw Error('Host data not defined');
   }
@@ -83,7 +42,7 @@ export const GetHeaders = (hostName: string): object => {
 const reset = () => {
   const gettoken = localStorage.getItem('il.a_tk');
   if (gettoken) {
-    apiConst.forEach(t => {
+    environment.services.forEach(t => {
       t.headers['Authorization'] = gettoken;
     });
   } else {

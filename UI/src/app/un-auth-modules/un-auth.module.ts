@@ -7,9 +7,16 @@ import { GetStartedComponent } from './get-started/get-started.component';
 import { LandingComponent } from './landing/landing.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { AuthModule } from 'projects/auth/src/public_api';
 
 @NgModule({
-  imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AuthModule
+  ],
   exports: [
     LoginComponent,
     RegisterComponent,

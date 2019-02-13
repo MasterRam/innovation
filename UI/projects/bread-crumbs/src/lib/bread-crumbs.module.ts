@@ -1,14 +1,14 @@
+import { CommonModule } from '@angular/common';
 import {
-  NgModule,
   InjectionToken,
   ModuleWithProviders,
+  NgModule,
   OnInit
-} from "@angular/core";
-import { BreadCrumbsComponent } from "./bread-crumbs.component";
-import { RouterModule, Router } from "@angular/router";
-import { CommonModule } from "@angular/common";
-import { BreadCrumbsService } from "./bread-crumbs.service";
-import { BreadCrumbConfigService, BreadCrumbConfig } from "./bread-crumbs.config";
+} from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
+import { BreadCrumbsComponent } from './bread-crumbs.component';
+import { BreadCrumbConfig, BreadCrumbConfigService } from './bread-crumbs.config';
+import { BreadCrumbsService } from './bread-crumbs.service';
 
 
 
@@ -20,9 +20,9 @@ import { BreadCrumbConfigService, BreadCrumbConfig } from "./bread-crumbs.config
 export class BreadCrumbsModule implements OnInit {
   static forRoot(config: BreadCrumbConfig): ModuleWithProviders {
     return {
-      ngModule: BreadCrumbsModule,            
-      providers: [       
-        BreadCrumbsService, 
+      ngModule: BreadCrumbsModule,
+      providers: [
+        BreadCrumbsService,
         {
           provide: BreadCrumbConfigService,
           useValue: config
@@ -33,7 +33,7 @@ export class BreadCrumbsModule implements OnInit {
   /**
    *
    */
-  constructor() {}
+  constructor() { }
 
   ngOnInit() {
   }
