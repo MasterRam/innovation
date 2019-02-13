@@ -1,0 +1,50 @@
+{
+  "name": "node-identity",
+  "version": "1.0.0",
+  "description": "Sample Node Identity ",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "ts-node ./lib/server.ts",
+    "test": "node ./build/clean.js && tsc --build ./tsconfig.test.json && mocha ./dist.test/**/*.spec.js && node ./build/clean.js",
+    "watch": "ts-watch",
+    "prod": "npm run build && npm run start",
+    "start": "nodemon ./dist/server.js"
+  },
+  "keywords": [
+    "Node",
+    "Mongo",
+    "Api"
+  ],
+  "author": "“Ramkumar <“ramkumar.murugarasan@hotmail.com”>",
+  "license": "ISC",
+  "dependencies": {
+    "@decorators/di": "^1.0.2",
+    "@decorators/express": "^2.3.0",
+    "bcrypt": "^3.0.4",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "jsonwebtoken": "^8.4.0",
+    "mongoose": "^5.4.4",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.18.9"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^3.0.0",
+    "@types/chai": "^4.1.7",
+    "@types/cors": "^2.8.4",
+    "@types/express": "^4.16.0",
+    "@types/jsonwebtoken": "^8.3.0",
+    "@types/mocha": "^5.2.5",
+    "@types/mongoose": "^5.3.7",
+    "@types/morgan": "^1.7.35",
+    "chai": "^4.2.0",
+    "del": "^3.0.0",
+    "mocha": "^5.2.0",
+    "ts-watch": "^1.0.8",
+    "tslint": "^5.12.1",
+    "typescript": "^3.2.4",
+    "typings": "^2.1.1"
+  }
+}
