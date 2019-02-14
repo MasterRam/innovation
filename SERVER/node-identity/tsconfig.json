@@ -10,7 +10,7 @@
     "outDir": "./dist",
     "baseUrl": "./"
   },
-  
+
   "include": ["lib/**/*.ts"],
   "exclude": ["node_modules"]
 }

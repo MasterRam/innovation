@@ -7,12 +7,12 @@ export class UserRepository {
     username: any,
     callback: (success: boolean, response: any) => void
   ) {
-    UserDocument.findOne({ UserName: username }, (err, data) => {
-      if (err) {
-        callback(false, err);
-      }
-      callback(true, data);
-    });
+    UserDocument.findOne({ userName: username }).then(
+      user => {
+        callback(true, user);
+      },
+      error => callback(false, error)
+    );
   }
 
   public findAll(callback: (success: boolean, response: any) => void) {

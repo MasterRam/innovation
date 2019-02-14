@@ -1,11 +1,11 @@
 import { Injectable } from '@decorators/di';
-import { Body, Controller, Get, Response, Post } from '@decorators/express';
-import { compareSync } from 'bcrypt';
+import { Body, Controller, Get, Post, Response } from '@decorators/express';
+import { compareSync, hashSync } from 'bcrypt';
 import { sign } from 'jsonwebtoken';
 import { Login } from '../models/user.model';
 import { UserRepository } from './user.repository';
 
-const secret = '';
+const secret = '123';
 @Controller('/')
 @Injectable()
 export class AuthController {
@@ -13,8 +13,9 @@ export class AuthController {
 
   @Post('/token')
   token(@Response() res, @Body() request: Login) {
-    this.service.getUser(request.username.toLowerCase(), (success, user) => {
-      if (!success) {
+    const dd = hashSync(request.password, 6);
+    this.service.getUser(request.username, (success, user) => {
+      if (!success || !user) {
         res.json({ success: false, message: 'Authentication failed.' });
         return;
       }
@@ -26,7 +27,8 @@ export class AuthController {
       // create a token with only our given payload
       // we don't want to pass in the entire user since that has the password
       const payload = {
-        admin: user.admin
+        userName: user.userName,
+        email: user.email
       };
 
       const token = sign(payload, secret, {

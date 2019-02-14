@@ -11,10 +11,6 @@ export const TagSchema = new Schema({
 });
 
 export const UserSchema = new Schema({
-  _id: {
-    type: ObjectId,
-    unique: true
-  },
   userName: {
     type: 'String',
     required: true
