@@ -1,4 +1,4 @@
 import { model } from 'mongoose';
-import { UserSchema } from '../modules/auth0/blogSchema.model';
+import { UserSchema } from '../modules/auth0/user.schema';
 
 export const UserDocument = model('Users', UserSchema);

@@ -1,5 +1,5 @@
 import { UserDocument } from '../../models/documents';
-import { User } from './blogSchema.model';
+import { User } from '../models/user.model';
 
 export class UserRepository {
   constructor() {}
@@ -7,7 +7,7 @@ export class UserRepository {
     username: any,
     callback: (success: boolean, response: any) => void
   ) {
-    UserDocument.findOne({ username }, (err, data) => {
+    UserDocument.findOne({ UserName: username }, (err, data) => {
       if (err) {
         callback(false, err);
       }

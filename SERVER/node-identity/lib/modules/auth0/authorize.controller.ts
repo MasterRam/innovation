@@ -1,28 +1,18 @@
 import { Injectable } from '@decorators/di';
-import {
-  Body,
-  Controller,
-  Get,
-  Params,
-  Post,
-  Response,
-  Request,
-  Query
-} from '@decorators/express';
-import { UserDocument } from '../../models/documents';
-import { User } from './blogSchema.model';
-import { UserRepository } from './user.repository';
-import { ObjectId } from 'bson';
-import { sign } from 'jsonwebtoken';
+import { Body, Controller, Get, Response, Post } from '@decorators/express';
 import { compareSync } from 'bcrypt';
+import { sign } from 'jsonwebtoken';
+import { Login } from '../models/user.model';
+import { UserRepository } from './user.repository';
+
 const secret = '';
 @Controller('/')
 @Injectable()
 export class AuthController {
   constructor(private service = new UserRepository()) {}
 
-  @Get('/authorize')
-  getData(@Response() res, @Body() request: any) {
+  @Post('/token')
+  token(@Response() res, @Body() request: Login) {
     this.service.getUser(request.username.toLowerCase(), (success, user) => {
       if (!success) {
         res.json({ success: false, message: 'Authentication failed.' });
@@ -39,7 +29,7 @@ export class AuthController {
         admin: user.admin
       };
 
-      var token = sign(payload, secret, {
+      const token = sign(payload, secret, {
         expiresIn: 1440 // expires in 24 hours
       });
 
@@ -51,22 +41,7 @@ export class AuthController {
       });
     });
   }
-
-  @Get('/all')
-  getAll(@Response() res) {
-    this.service.findAll((success, response) => {
-      res.send(response);
-    });
-  }
-  @Post('/post')
-  postData(@Response() res, @Query('id') id: any, @Body() data: User) {
-    if (id === undefined || id === 'undefined' || id === 'null' || id === null)
-      id = new ObjectId();
-    data._id = id;
-    data.normalized_title = data.title.replace(/ /g, '_').toLowerCase();
-    this.service.Add(id, data, (success, response) => {
-      response.data = data.normalized_title;
-      res.send(response);
-    });
-  }
+  userinfo(@Response() res, @Body() request: Login) {}
+  revocation(@Response() res, @Body() request: Login) {}
+  introspect(@Response() res, @Body() request: Login) {}
 }

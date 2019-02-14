@@ -1,12 +1,12 @@
 import * as bodyParser from 'body-parser';
+import cors = require('cors');
 import * as express from 'express';
 import { connect } from 'mongoose';
-import { Routes } from './routes/app.routes';
-import cors = require('cors');
-import { CorsOptionsLocal } from './CORSHandler';
 import morgan = require('morgan');
+import { CorsOptionsLocal } from './CORSHandler';
+import { Routes } from './routes/app.routes';
 class App {
-  public mongoUrl = 'mongodb://localhost:27017/Innovation';
+  public mongoUrl = 'mongodb://localhost:27017/IdentityServer';
   public app: express.Application;
   public routePrv: Routes = new Routes();
 

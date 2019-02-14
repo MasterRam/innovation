@@ -1,6 +1,6 @@
 import { attachControllers } from '@decorators/express';
 import { Request, Response, Application, Router } from 'express';
-import { AuthController } from '../modules/auth0/blog.controller';
+import { AuthController } from '../modules/auth0/authorize.controller';
 
 export class Routes {
   public routes(app: Application): void {

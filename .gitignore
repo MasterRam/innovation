@@ -47,3 +47,4 @@ SERVER/**/lib/**/*.js
 SERVER/**/lib/**/*.js.map
 SERVER/**/package-lock.json
 UI/**/package-lock.json
+SERVER/node-identity/dist/
