@@ -16,4 +16,5 @@ export class LoginController {
   userinfo(@Response() res, @Body() request: Login) {}
   revocation(@Response() res, @Body() request: Login) {}
   introspect(@Response() res, @Body() request: Login) {}
+  // qwe
 }
