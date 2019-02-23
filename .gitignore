@@ -40,11 +40,11 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
-SERVER/node-mongo-apis/dist/
-SERVER/node-mongo-apis/test/**/*.js
-SERVER/node-mongo-apis/test/**/*.js.map
+SERVER/**/dist/
+SERVER/**/test/**/*.js
+SERVER/**/test/**/*.js.map
 SERVER/**/lib/**/*.js
 SERVER/**/lib/**/*.js.map
 SERVER/**/package-lock.json
 UI/**/package-lock.json
-SERVER/node-identity/dist/
+
