@@ -1,0 +1,4 @@
+[submodule "SERVER/node-identity"]
+	path = SERVER/node-identity
+	url = https://github.com/MasterRam/node-identity
+	branch = master
