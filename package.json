@@ -6,5 +6,8 @@
     "start:server": "cd SERVER/node-mongo-apis && npm start",
     "watch:server": "cd SERVER/node-mongo-apis && npm run watch"
   },
-  "private": true
+  "private": true,
+  "dependencies": {
+    "express-generator": "^4.16.0"
+  }
 }
