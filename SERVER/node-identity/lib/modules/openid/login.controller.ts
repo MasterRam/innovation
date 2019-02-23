@@ -9,12 +9,10 @@ const secret = '123';
 @Controller('/')
 @Injectable()
 export class LoginController {
-  @Post('/index')
+  @Get('/login')
   token(@Response() res: express.Response, @Body() request: Login) {
-    res.render('index', { title: 'Express' });
+    res.render('account/login', { title: 'Express', layout: 'layouts/empty' });
   }
-  userinfo(@Response() res, @Body() request: Login) {}
-  revocation(@Response() res, @Body() request: Login) {}
-  introspect(@Response() res, @Body() request: Login) {}
   // qwe
 }
+
