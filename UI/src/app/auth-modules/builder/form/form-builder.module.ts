@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 
-import { FormBuilderComponent } from './form-builder.component';
-import { NglFormBuilderModule } from 'projects/form-builder/src/public_api';
 import { CommonModule } from '@angular/common';
+import { NglFormBuilderModule } from 'form-builder';
+import { FormBuilderComponent } from './form-builder.component';
 
 @NgModule({
-    imports: [CommonModule, NglFormBuilderModule],
-    exports: [FormBuilderComponent],
-    declarations: [FormBuilderComponent],
-    providers: [],
+  imports: [CommonModule, NglFormBuilderModule],
+  exports: [FormBuilderComponent],
+  declarations: [FormBuilderComponent],
+  providers: []
 })
-export class FormBuilderModule { }
+export class FormBuilderModule {}

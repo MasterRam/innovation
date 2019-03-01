@@ -2,12 +2,12 @@ import { isPlatformBrowser } from '@angular/common';
 import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { Router } from '@angular/router';
 import { JwksValidationHandler, OAuthService } from 'angular-oauth2-oidc';
-import { BreadCrumbsService } from 'projects/bread-crumbs/src/lib/bread-crumbs.service';
+import { AuthService } from 'auth';
+import { BreadCrumbsService } from 'bread-crumbs';
 import { environment } from 'src/environments/environment';
 import { authConfig } from './identity/auth-config';
 import { OAuthRefreshService } from './identity/auth-refresh';
 import './main-script';
-import { AuthService } from 'projects/auth/src/public_api';
 
 @Component({
   selector: 'app-root',
@@ -20,14 +20,7 @@ export class AppComponent implements OnInit {
   /**
    *
    */
-  constructor(
-    @Inject(PLATFORM_ID) private platformId: Object,
-    private router: Router,
-    private oauthService: OAuthService,
-    private refreshService: OAuthRefreshService,
-    private crumb: BreadCrumbsService,
-    private auth: AuthService
-  ) {
+  constructor(@Inject(PLATFORM_ID) private platformId: Object, private router: Router, private oauthService: OAuthService, private refreshService: OAuthRefreshService, private crumb: BreadCrumbsService, private auth: AuthService) {
     auth.handleAuthentication(undefined);
     if (environment.allowAnonymous) {
       return;
@@ -52,10 +45,7 @@ export class AppComponent implements OnInit {
         }
       });
       this.oauthService.loadDiscoveryDocumentAndTryLogin().then(_ => {
-        if (
-          this.oauthService.hasValidIdToken() ||
-          this.oauthService.hasValidAccessToken()
-        ) {
+        if (this.oauthService.hasValidIdToken() || this.oauthService.hasValidAccessToken()) {
           this.refreshService.refreshToken();
         }
       });

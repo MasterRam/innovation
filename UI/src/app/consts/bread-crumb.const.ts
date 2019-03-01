@@ -1,7 +1,4 @@
-import {
-  BreadCrumbConfig,
-  IOption
-} from 'projects/bread-crumbs/src/lib/bread-crumbs.config';
+import { BreadCrumbConfig, IOption } from 'bread-crumbs/bread-crumbs.config';
 
 export const DashboardBreadCrumbs: BreadCrumbConfig = {
   crumbs: [

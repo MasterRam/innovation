@@ -1,10 +1,10 @@
-import { NgModule } from "@angular/core";
-import { DashboardComponent } from "./dashboard.component";
-import { CommonModule } from "@angular/common";
-import { RouterModule } from "@angular/router";
-import { SummaryComponent } from "./summary/summary.component";
-import { SearchComponent } from "./search/search.component";
-import { BreadCrumbsModule } from "projects/bread-crumbs/src/public_api";
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { BreadCrumbsModule } from 'bread-crumbs';
+import { DashboardComponent } from './dashboard.component';
+import { SearchComponent } from './search/search.component';
+import { SummaryComponent } from './summary/summary.component';
 
 @NgModule({
   imports: [CommonModule, RouterModule, BreadCrumbsModule],

@@ -1,5 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Router, NavigationEnd, Route, ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { BreadCrumbsService } from './bread-crumbs.service';
 
 @Component({
@@ -8,9 +7,7 @@ import { BreadCrumbsService } from './bread-crumbs.service';
   styles: []
 })
 export class BreadCrumbsComponent implements OnInit {
-  constructor(public service: BreadCrumbsService) { }
+  constructor(public service: BreadCrumbsService) {}
 
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 }

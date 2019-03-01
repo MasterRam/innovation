@@ -4,9 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { OAuthModule } from 'angular-oauth2-oidc';
+import { AuthModule } from 'auth';
+import { BreadCrumbsModule } from 'bread-crumbs';
 import { ButtonsModule } from 'ngx-bootstrap';
-import { AuthModule } from 'projects/auth/src/lib/auth.module';
-import { BreadCrumbsModule } from 'projects/bread-crumbs/src/lib/bread-crumbs.module';
 import { environment } from 'src/environments/environment';
 import { ApiService } from './api.service';
 import { AppRoutingModule } from './app-routing.module';
@@ -19,16 +19,7 @@ import { UnAuthGuard } from './identity/un-auth-guard';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    BreadCrumbsModule.forRoot(DashboardBreadCrumbs),
-    OAuthModule.forRoot(),
-    AuthModule.forRoot(environment.auth),
-    ButtonsModule.forRoot(),
-    HttpClientModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, BrowserAnimationsModule, BreadCrumbsModule.forRoot(DashboardBreadCrumbs), OAuthModule.forRoot(), AuthModule.forRoot(environment.auth), ButtonsModule.forRoot(), HttpClientModule, AppRoutingModule],
   providers: [
     ApiService,
     {

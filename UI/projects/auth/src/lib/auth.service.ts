@@ -1,8 +1,7 @@
 import { Inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { WebAuth, Auth0UserProfile } from 'auth0-js';
+import { Auth0UserProfile, WebAuth } from 'auth0-js';
 import { AuthConfigService, IAuthOptions } from './auth.config';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,10 +13,7 @@ export class AuthService {
   public userInfo: Auth0UserProfile;
   private _auth0: WebAuth;
 
-  constructor(
-    @Inject(AuthConfigService) private config: IAuthOptions,
-    public router: Router
-  ) {
+  constructor(@Inject(AuthConfigService) private config: IAuthOptions, public router: Router) {
     this._idToken = '';
     this._accessToken = '';
     this._expiresAt = 0;
@@ -74,11 +70,7 @@ export class AuthService {
           callback();
         }
       } else if (err) {
-        alert(
-          `Could not get a new token (${err.error}: ${
-            err['error_description']
-          }).`
-        );
+        alert(`Could not get a new token (${err.error}: ${err['error_description']}).`);
         this.logout();
       }
     });
