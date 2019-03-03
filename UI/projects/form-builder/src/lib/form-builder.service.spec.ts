@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { NglFormBuilderService } from './form-builder.service';
+import { FormBuilderService } from './form-builder.service';
 
-describe('NglFormBuilderService', () => {
+describe('FormBuilderService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: NglFormBuilderService = TestBed.get(NglFormBuilderService);
+    const service: FormBuilderService = TestBed.get(FormBuilderService);
     expect(service).toBeTruthy();
   });
 });

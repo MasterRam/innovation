@@ -1,15 +1,15 @@
-import { NgModule } from '@angular/core';
-import { NglFormBuilderComponent } from './form-builder.component';
-import { FormElementComponent } from './elements/form-element.component';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
+import { FormElementComponent } from './elements/form-element.component';
+import { FormBuilderComponent } from './form-builder.component';
+import { FormPropertiesComponent } from './properties/properties.component';
 @NgModule({
-  declarations: [NglFormBuilderComponent, FormElementComponent],
+  declarations: [FormBuilderComponent, FormElementComponent, FormPropertiesComponent ],
   imports: [
     CommonModule,
     FormsModule
   ],
-  exports: [NglFormBuilderComponent]
+  exports: [FormBuilderComponent]
 })
-export class NglFormBuilderModule { }
+export class FormBuilderModule { }

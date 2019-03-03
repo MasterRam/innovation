@@ -1,0 +1,78 @@
+<div class="card mb-1">
+    <div class="card-header">Properties</div>
+    <div class="card-body">
+        <h5 class="card-title">{{model.title}}</h5>
+        <p class="card-text">
+            Some quick example text to build on the card title and make up the
+            bulk of the card's content.
+        </p>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item form-group">
+            <div class="row">
+                <label class="col-5">Layout</label>
+                <div class="col">
+                    <select class="form-control" [(ngModel)]="model.layout" name="layout">
+                        <option value="one">One</option>
+                        <option value="two">Two</option>
+                    </select>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item form-group">
+            <div class="row">
+                <label class="col-5">Api R3source</label>
+                <div class="col">
+                    <select class="form-control">
+                        <option>Resource 1</option>
+                        <option>Resource 2</option>
+                    </select>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item form-group">
+            <div class="row">
+                <label class="col-5">Action</label>
+                <div class="col"><input type="text" class="form-control" /></div>
+            </div>
+        </li>
+        <li class="list-group-item form-group">
+            <div class="row">
+                <label class="col-5">Enable Validation</label>
+                <div class="col"><input type="text" class="form-control" /></div>
+            </div>
+        </li>
+    </ul>
+    <div class="card-footer">Totally 4 Properties</div>
+</div>
+<div class="card mb-1" *ngIf="index >-1">
+    <div class="card-header">Field Properties</div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item form-group">
+            <div class="row">
+                <label class="col-5">Label</label>
+                <div class="col"><input type="text" class="form-control" [(ngModel)]="model.elements[index].label" />
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item form-group">
+            <div class="row">
+                <label class="col-5">Name</label>
+                <div class="col"><input type="text" class="form-control" [(ngModel)]="model.elements[index].name" />
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item form-group">
+            <div class="row">
+                <label class="col-5">Type</label>
+                <div class="col"><input type="text" class="form-control" /></div>
+            </div>
+        </li>
+        <li class="list-group-item form-group form-check">
+            <div class="row">
+                <label class="form-check-label col-5">Required</label>
+                <div class="col"><input type="checkbox" class="form-check-input" /></div>
+            </div>
+        </li>
+    </ul>
+</div>

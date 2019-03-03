@@ -1,5 +1,5 @@
 
-export class FormInput {
+export interface FormInput {
     type: string | 'text' | 'number' | 'date' | 'checkbox' | 'radio' | 'password' | 'list';
     required: boolean | false;
     id: string;
@@ -7,11 +7,14 @@ export class FormInput {
     label: string;
     placeholder: string;
     value: any;
+    locked: boolean;
     options: any[];
 }
 
-export class FormInputCollection {
+export interface FormInputCollection {
     title: string;
-    layout: string | 'column1' | 'column2' | 'column3';
+    layout: string | 'one' | 'two' | 'three';
     elements: FormInput[];
 }
+
+

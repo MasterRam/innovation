@@ -3,9 +3,9 @@ import { SampleFormConst } from 'form-builder/sample/sampleForm.const';
 
 @Component({
   selector: 'app-form-builder',
-  templateUrl: './form-builder.component.html'
+  templateUrl: './form-editor.component.html'
 })
-export class FormBuilderComponent implements OnInit {
+export class FormEditorComponent implements OnInit {
   form = SampleFormConst;
   constructor() {}
 

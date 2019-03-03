@@ -5,3 +5,4 @@
 export * from './lib/form-builder.service';
 export * from './lib/form-builder.component';
 export * from './lib/form-builder.module';
+export * from './lib/sample/sampleForm.const';
