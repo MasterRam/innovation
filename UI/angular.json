@@ -218,7 +218,7 @@
           "options": {
             "tsConfig": "projects/auth/tsconfig.lib.json",
             "project": "projects/auth/ng-package.json",
-            "scripts":[
+            "scripts": [
               "./node_modules/auth0-js/build/auth0.js"
             ]
           }
@@ -237,6 +237,41 @@
             "tsConfig": [
               "projects/auth/tsconfig.lib.json",
               "projects/auth/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@ilucy/auth": {
+      "root": "projects/ilucy/auth",
+      "sourceRoot": "projects/ilucy/auth/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ilucy/auth/tsconfig.lib.json",
+            "project": "projects/ilucy/auth/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ilucy/auth/src/test.ts",
+            "tsConfig": "projects/ilucy/auth/tsconfig.spec.json",
+            "karmaConfig": "projects/ilucy/auth/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ilucy/auth/tsconfig.lib.json",
+              "projects/ilucy/auth/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"

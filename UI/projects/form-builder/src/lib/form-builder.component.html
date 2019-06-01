@@ -3,7 +3,7 @@
         placeholder="Form Title...">
 </div>
 <div class="row">
-    <div class="col-md-9 col-sm-8 col-10">
+    <div class="col-xl-9 col-md-8 col-sm-7 col-6">
         <div class="row">
             <ngl-form-element data-id="{{i}}" [locked]="element.locked" [ngClass]="{ 'col-12':input.layout=='one','col-6':input.layout=='two'}"
                 (edit)="onEdit($event)" [index]="i" *ngFor="let element of input.elements;let i=index;"
@@ -65,7 +65,7 @@
             </div>
         </div>
     </div>
-    <div class="col-md-3 col-sm-4 col-2">
+    <div class="col-xl-3 col-md-4 col-sm-5 col-6">
         <ngl-form-properties [model]="input" [index]="elementIndex"></ngl-form-properties>
     </div>
 </div>

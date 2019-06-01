@@ -10,7 +10,7 @@
     <ul class="list-group list-group-flush">
         <li class="list-group-item form-group">
             <div class="row">
-                <label class="col-5">Layout</label>
+                <label class="col-5 col-form-label">Layout</label>
                 <div class="col">
                     <select class="form-control" [(ngModel)]="model.layout" name="layout">
                         <option value="one">One</option>
@@ -21,9 +21,9 @@
         </li>
         <li class="list-group-item form-group">
             <div class="row">
-                <label class="col-5">Api R3source</label>
+                <label class="col-5 col-form-label">Endpoint</label>
                 <div class="col">
-                    <select class="form-control">
+                    <select class="form-control" [(ngModel)]="model.api">
                         <option>Resource 1</option>
                         <option>Resource 2</option>
                     </select>
@@ -32,46 +32,58 @@
         </li>
         <li class="list-group-item form-group">
             <div class="row">
-                <label class="col-5">Action</label>
-                <div class="col"><input type="text" class="form-control" /></div>
-            </div>
-        </li>
-        <li class="list-group-item form-group">
-            <div class="row">
-                <label class="col-5">Enable Validation</label>
-                <div class="col"><input type="text" class="form-control" /></div>
+                <div class="col-5">Validation</div>
+                <div class="col">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Enable</label>
+                    </div>
+                </div>
             </div>
         </li>
     </ul>
-    <div class="card-footer">Totally 4 Properties</div>
+    <div class="card-footer">Totally {{model?.elements?.length}} Properties</div>
 </div>
 <div class="card mb-1" *ngIf="index >-1">
     <div class="card-header">Field Properties</div>
     <ul class="list-group list-group-flush">
         <li class="list-group-item form-group">
             <div class="row">
-                <label class="col-5">Label</label>
+                <label class="col-5 col-form-label">Label</label>
                 <div class="col"><input type="text" class="form-control" [(ngModel)]="model.elements[index].label" />
                 </div>
             </div>
         </li>
         <li class="list-group-item form-group">
             <div class="row">
-                <label class="col-5">Name</label>
+                <label class="col-5 col-form-label">Name</label>
                 <div class="col"><input type="text" class="form-control" [(ngModel)]="model.elements[index].name" />
                 </div>
             </div>
         </li>
         <li class="list-group-item form-group">
             <div class="row">
-                <label class="col-5">Type</label>
-                <div class="col"><input type="text" class="form-control" /></div>
+                <label class="col-5 col-form-label">Hint</label>
+                <div class="col"><input type="text" class="form-control" [(ngModel)]="model.elements[index].hint" />
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item form-group">
+            <div class="row">
+                <label class="col-5 col-form-label">Type</label>
+                <div class="col"><input type="text" class="form-control" [(ngModel)]="model.elements[index].type" />
+                </div>
             </div>
         </li>
         <li class="list-group-item form-group form-check">
             <div class="row">
-                <label class="form-check-label col-5">Required</label>
-                <div class="col"><input type="checkbox" class="form-check-input" /></div>
+                <div class="col-5">Required</div>
+                <div class="col">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Yes</label>
+                    </div>
+                </div>
             </div>
         </li>
     </ul>
