@@ -1,0 +1,12 @@
+{
+  "name": "auth",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^7.0.0",
+    "@angular/core": "^7.0.0",
+    "auth0-js": "^9.10.0"
+  },
+  "devDependencies": {
+    "@types/auth0-js": "^8.11.11"
+  }
+}

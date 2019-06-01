@@ -1,8 +1,0 @@
-<nav class="mt-3" aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item " aria-current="page"  *ngFor="let item of service.crumbs | async as list" [ngClass]="{active: item.active}" >
-          <a  *ngIf="!item.active" href="#">{{item.name}}</a>
-          <span *ngIf="item.active" >{{item.name}}</span>
-      </li>      
-    </ol>
- </nav>  
