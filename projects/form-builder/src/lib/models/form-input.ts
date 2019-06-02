@@ -14,7 +14,7 @@ export interface FormInput {
 export interface FormInputCollection {
     title: string;
     layout: string | 'one' | 'two' | 'three';
-    elements: FormInput[];
+    properties: FormInput[];
 }
 
 

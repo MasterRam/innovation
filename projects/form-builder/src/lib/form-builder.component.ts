@@ -1,22 +1,75 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, forwardRef, Input, OnInit } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { FormInput, FormInputCollection } from './models/form-input';
+
+
+const noop = () => {
+};
+
+export const FORM_BUILDER_CONTROL_VALUE_ACCESSOR: any = {
+  provide: NG_VALUE_ACCESSOR,
+  useExisting: forwardRef(() => FormBuilderComponent),
+  multi: true
+};
+
 
 @Component({
   selector: 'ngl-form-builder',
   templateUrl: './form-builder.component.html',
-  styles: []
+  styles: [],
+  providers: [FORM_BUILDER_CONTROL_VALUE_ACCESSOR]
 })
-export class FormBuilderComponent implements OnInit {
+export class FormBuilderComponent implements OnInit, ControlValueAccessor {
 
-  @Input()
-  input: FormInputCollection = {
-    elements: [] as FormInput[],
+  elementIndex = -1;
+
+  // The internal data model
+  private innerValue: FormInputCollection = {
+    properties: [] as FormInput[],
     layout: 'one'
   } as FormInputCollection;
-  elementIndex = -1;
-  constructor() { }
+
+  // Placeholders for the callbacks which are later providesd
+  // by the Control Value Accessor
+  private onTouchedCallback: () => void = noop;
+  private onChangeCallback: (_: FormInputCollection) => void = noop;
+
+  // get accessor
+  get value(): FormInputCollection {
+    return this.innerValue;
+  }
+
+  // set accessor including call the onchange callback
+  set value(v: FormInputCollection) {
+    if (v !== this.innerValue) {
+      this.innerValue = v;
+      this.onChangeCallback(v);
+    }
+  }
 
   ngOnInit() {
+  }
+
+  // Set touched on blur
+  onBlur() {
+    this.onTouchedCallback();
+  }
+
+  // From ControlValueAccessor interface
+  writeValue(value: FormInputCollection) {
+    if (value !== this.innerValue) {
+      this.innerValue = value;
+    }
+  }
+
+  // From ControlValueAccessor interface
+  registerOnChange(fn: any) {
+    this.onChangeCallback = fn;
+  }
+
+  // From ControlValueAccessor interface
+  registerOnTouched(fn: any) {
+    this.onTouchedCallback = fn;
   }
 
   addElement(type: 'text' | 'number' | 'date' | 'checkbox' | 'radio' | 'password' | 'list') {
@@ -42,15 +95,17 @@ export class FormBuilderComponent implements OnInit {
     }
     ele.label = 'Input';
     ele.placeholder = `Enter ${ele.label}`;
-    this.input.elements.push(ele);
+    this.innerValue.properties.push(ele);
   }
 
-
+  titleChange(title) {
+    this.value.title = title;
+  }
 
   onEdit(data: { [name: string]: string | number }) {
     const elementIndex = data['index'] as number;
     if (data['action'] === 'edit') {
-      if (this.input.elements.length >= elementIndex && this.input.elements[elementIndex].locked) {
+      if (this.innerValue.properties.length >= elementIndex && this.innerValue.properties[elementIndex].locked) {
         return;
       }
       this.elementIndex = elementIndex;
@@ -58,7 +113,7 @@ export class FormBuilderComponent implements OnInit {
       if (elementIndex === elementIndex) {
         this.elementIndex = -1;
       }
-      this.input.elements[elementIndex].locked = !this.input.elements[elementIndex].locked;
+      this.innerValue.properties[elementIndex].locked = !this.innerValue.properties[elementIndex].locked;
     }
   }
 }

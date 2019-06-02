@@ -1,14 +1,14 @@
-<div class="form-group">
-    <input type="text" class="form-control form-control-lg" [(ngModel)]="input.title" id="title"
+<div class="form-group" *ngIf="value!=null">
+    <input type="text" class="form-control form-control-lg" [(ngModel)]="innerValue.title" id="title"
         placeholder="Form Title...">
 </div>
-<div class="row">
+<div class="row" *ngIf="value!=null">
     <div class="col-xl-9 col-md-8 col-sm-7 col-6">
         <div class="row">
-            <ngl-form-element data-id="{{i}}" [locked]="element.locked" [ngClass]="{ 'col-12':input.layout=='one','col-6':input.layout=='two'}"
-                (edit)="onEdit($event)" [index]="i" *ngFor="let element of input.elements;let i=index;"
-                [type]="element.type" [label]="element.label" [required]="element.required"
-                [placeholder]="element.placeholder">
+            <ngl-form-element data-id="{{i}}" [locked]="element.locked"
+                [ngClass]="{ 'col-12':value.layout=='one','col-6':value.layout=='two'}" (edit)="onEdit($event)"
+                [index]="i" *ngFor="let element of value.properties;let i=index;" [type]="element.type"
+                [label]="element.label" [required]="element.required" [placeholder]="element.placeholder">
             </ngl-form-element>
         </div>
         <div>
@@ -66,6 +66,6 @@
         </div>
     </div>
     <div class="col-xl-3 col-md-4 col-sm-5 col-6">
-        <ngl-form-properties [model]="input" [index]="elementIndex"></ngl-form-properties>
+        <ngl-form-properties [model]="value" [index]="elementIndex"></ngl-form-properties>
     </div>
 </div>

@@ -10,7 +10,7 @@ export class FormPropertiesComponent implements OnInit {
     @Input()
     model: FormInputCollection = {
         layout: 'one',
-        elements: []
+        properties: []
     } as FormInputCollection;
     @Input()
     index = -1;

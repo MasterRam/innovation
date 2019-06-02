@@ -42,7 +42,7 @@
             </div>
         </li>
     </ul>
-    <div class="card-footer">Totally {{model?.elements?.length}} Properties</div>
+    <div class="card-footer">Totally {{model?.properties?.length}} Properties</div>
 </div>
 <div class="card mb-1" *ngIf="index >-1">
     <div class="card-header">Field Properties</div>
@@ -50,28 +50,28 @@
         <li class="list-group-item form-group">
             <div class="row">
                 <label class="col-5 col-form-label">Label</label>
-                <div class="col"><input type="text" class="form-control" [(ngModel)]="model.elements[index].label" />
+                <div class="col"><input type="text" class="form-control" [(ngModel)]="model.properties[index].label" />
                 </div>
             </div>
         </li>
         <li class="list-group-item form-group">
             <div class="row">
                 <label class="col-5 col-form-label">Name</label>
-                <div class="col"><input type="text" class="form-control" [(ngModel)]="model.elements[index].name" />
+                <div class="col"><input type="text" class="form-control" [(ngModel)]="model.properties[index].name" />
                 </div>
             </div>
         </li>
         <li class="list-group-item form-group">
             <div class="row">
                 <label class="col-5 col-form-label">Hint</label>
-                <div class="col"><input type="text" class="form-control" [(ngModel)]="model.elements[index].hint" />
+                <div class="col"><input type="text" class="form-control" [(ngModel)]="model.properties[index].hint" />
                 </div>
             </div>
         </li>
         <li class="list-group-item form-group">
             <div class="row">
                 <label class="col-5 col-form-label">Type</label>
-                <div class="col"><input type="text" class="form-control" [(ngModel)]="model.elements[index].type" />
+                <div class="col"><input type="text" class="form-control" [(ngModel)]="model.properties[index].type" />
                 </div>
             </div>
         </li>

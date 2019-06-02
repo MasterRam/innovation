@@ -3,7 +3,7 @@ import { FormInputCollection } from '../models/form-input';
 export const SampleFormConst: FormInputCollection = {
     title: 'Form 1',
     layout: 'one',
-    elements: [
+    properties: [
         {
             name: 'name',
             type: 'text',
