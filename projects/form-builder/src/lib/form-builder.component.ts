@@ -72,7 +72,7 @@ export class FormBuilderComponent implements OnInit, ControlValueAccessor {
     this.onTouchedCallback = fn;
   }
 
-  addElement(type: 'text' | 'number' | 'date' | 'checkbox' | 'radio' | 'password' | 'list') {
+  addElement(type: 'text' | 'number' | 'date' | 'checkbox' | 'radio' | 'password' | 'list' | 'multiselect' | 'dropdown' | 'range') {
     const ele = {} as FormInput;
     ele.type = type;
     switch (type) {
@@ -89,6 +89,12 @@ export class FormBuilderComponent implements OnInit, ControlValueAccessor {
       case 'password':
         break;
       case 'list':
+        break;
+      case 'multiselect':
+        break;
+      case 'dropdown':
+        break;
+      case 'range':
         break;
       default:
         return;
