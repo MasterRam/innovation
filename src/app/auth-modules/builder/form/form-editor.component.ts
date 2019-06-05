@@ -10,4 +10,8 @@ export class FormEditorComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
+  save() {
+// this.;
+  }
 }

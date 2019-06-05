@@ -2,6 +2,10 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { OAuthModule } from 'angular-oauth2-oidc';
 import { AuthModule } from 'auth';
@@ -17,9 +21,18 @@ import { OAuthRefreshService } from './identity/auth-refresh';
 import { TokenInterceptor } from './identity/token-interceptor';
 import { UnAuthGuard } from './identity/un-auth-guard';
 
+library.add(fas);
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, BrowserAnimationsModule, BreadCrumbsModule.forRoot(DashboardBreadCrumbs), OAuthModule.forRoot(), AuthModule.forRoot(environment.auth), ButtonsModule.forRoot(), HttpClientModule, AppRoutingModule],
+  imports: [BrowserModule,
+    BrowserAnimationsModule,
+    BreadCrumbsModule.forRoot(DashboardBreadCrumbs),
+    OAuthModule.forRoot(),
+    AuthModule.forRoot(environment.auth),
+    ButtonsModule.forRoot(),
+    HttpClientModule,
+    FontAwesomeModule,
+    AppRoutingModule],
   providers: [
     ApiService,
     {
@@ -33,4 +46,4 @@ import { UnAuthGuard } from './identity/un-auth-guard';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
