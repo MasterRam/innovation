@@ -1,0 +1,54 @@
+{
+  "compileOnSave": false,
+  "autoFixOnSave": true,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "module": "es2015",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es5",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "paths": {
+      "bread-crumbs": [
+        // "dist/bread-crumbs",
+        "./projects/bread-crumbs/src/public_api"
+      ],
+      "bread-crumbs/*": [
+        // "dist/bread-crumbs/*",
+        "./projects/bread-crumbs/src/lib/*"
+      ],
+      "form-builder": [
+        // "dist/form-builder",
+        "./projects/form-builder/src/public_api"
+      ],
+      "form-builder/*": [
+        // "dist/form-builder/*",
+        "./projects/form-builder/src/lib/*"
+      ],
+      "auth": [
+        // "dist/auth",
+        "./projects/auth/src/public_api"
+      ],
+      "auth/*": [
+        // "dist/auth/*",
+        "./projects/auth/src/lib/*"
+      ],
+      "@ilucy/auth": [
+        "dist/ilucy/auth"
+      ],
+      "@ilucy/auth/*": [
+        "dist/ilucy/auth/*"
+      ]
+    }
+  }
+}

@@ -1,0 +1,18 @@
+<div class="dashboard row">
+  <div class="sidenav col-md-2">
+    <ul class="nav flex-column">
+      <li class="nav-item"><a class="nav-link active" [routerLink]="['/home','dashboard','summary']" routerLinkActive="active">Summary</a></li>
+      <li class="nav-item"><a class="nav-link" [routerLink]="['/home','dashboard','page']" routerLinkActive="active">Pages</a></li>
+      <li class="nav-item"><a class="nav-link" [routerLink]="['/home','dashboard','form']" routerLinkActive="active">Form</a></li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/home','dashboard','blog']" routerLinkActive="active">Blogs</a>
+      </li>
+      <li class="nav-item"><a class="nav-link" [routerLink]="['/home','dashboard','gallery']" routerLinkActive="active">Gallery</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">Help ? </a></li>
+    </ul>
+  </div>
+  <div class="container-body col-md-10">
+    <ngl-bread-crumbs ></ngl-bread-crumbs>      
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,4 +1,5 @@
 import { Schema } from 'mongoose';
+import { ObjectID } from 'mongodb';
 
 export const TagSchema = new Schema({
   display: {
@@ -25,13 +26,24 @@ export const BlogSchema = new Schema({
   updated_date: {
     type: Date,
     default: Date.now
+  },
+  normalized_title: {
+    type: String,
+    required: 'Give a Normalized title'
   }
 });
 
-export class BlogPost {
-  title: string;
-  tags: string[];
+export class BlogModel {
+  constructor() {
+  }
+  _id: any;
   content: string;
-  created_date: Date;
+  tags: TagModel[];
+  title: string;
   updated_date: Date;
+  normalized_title: string;
+}
+export class TagModel {
+  public display: string;
+  public value: string;
 }

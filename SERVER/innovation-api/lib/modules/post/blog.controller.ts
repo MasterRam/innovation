@@ -10,27 +10,36 @@ import {
   Query
 } from '@decorators/express';
 import { BlogDocument } from '../../models/documents';
-import { BlogPost } from './blogSchema.model';
+import { BlogModel } from './blogSchema.model';
 import { BlogRepository } from './blog.repository';
+import { ObjectId } from 'bson';
 
 @Controller('/api/blog')
 @Injectable()
 export class BlogController {
-  constructor(private service = new BlogRepository()) {}
+  constructor(private service = new BlogRepository()) { }
 
   @Get('/get')
   getData(@Response() res, @Query('name') name: string) {
-    const post = new BlogPost();
-    post.title = name;
-    this.service.findBy({ title: name }, (success, response) => {
+
+    this.service.findBy({ normalized_title: name.toLowerCase() }, (success, response) => {
       res.send(response);
     });
   }
-
-  @Post('/:id')
-  postData(@Response() res, @Params('id') id: string, @Body() data: BlogPost) {
-    data.title = id;
-    this.service.Add({ title: id }, data, (success, response) => {
+  @Get('/all')
+  getAll(@Response() res) {
+    this.service.findAll( (success, response) => {
+      res.send(response);
+    })
+  }
+  @Post('/post')
+  postData(@Response() res, @Query('id') id: any, @Body() data: BlogModel) {
+    if(id===undefined||id==='undefined'||id==='null'||id===null)
+    id=new ObjectId();
+    data._id = id;
+    data.normalized_title = data.title.replace(/ /g, '_').toLowerCase();
+    this.service.Add( id , data, (success, response) => {
+      response.data = data.normalized_title
       res.send(response);
     });
   }
